@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gabriel Rayat | Portfolio</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#FF8A00',secondary:'#1F2937'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+scroll-behavior: smooth;
+}
+.section-container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 2rem;
+}
+.section {
+padding: 5rem 0;
+min-height: 100vh;
+display: flex;
+align-items: center;
+}
+.nav-link {
+position: relative;
+}
+.nav-link::after {
+content: '';
+position: absolute;
+width: 0;
+height: 2px;
+bottom: -4px;
+left: 0;
+background-color: #FF8A00;
+transition: width 0.3s;
+}
+.nav-link:hover::after {
+width: 100%;
+}
+.active-link::after {
+width: 100%;
+}
+.tech-icon {
+transition: transform 0.3s ease;
+}
+.tech-icon:hover {
+transform: translateY(-5px);
+}
+.project-card {
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+input:focus, textarea:focus {
+outline: none;
+border-color: #FF8A00;
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Navigation -->
+<header class="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
+<div class="section-container py-4 flex justify-between items-center">
+<div class="flex items-center gap-1">
+<span class="text-xl font-medium text-primary">Gabriel Rayat</span>
+<span class="text-xl text-gray-900">/</span>
+<span class="text-xl text-gray-500">Portfolio</span>
+</div>
+<nav>
+<ul class="flex space-x-8">
+<li><a href="#home" class="nav-link active-link text-gray-800 hover:text-primary transition-colors">Home</a></li>
+<li><a href="#about" class="nav-link text-gray-800 hover:text-primary transition-colors">About</a></li>
+<li><a href="#tech-stack" class="nav-link text-gray-800 hover:text-primary transition-colors">Tech Stack</a></li>
+<li><a href="#projects" class="nav-link text-gray-800 hover:text-primary transition-colors">Projects</a></li>
+<li><a href="#contact" class="nav-link text-gray-800 hover:text-primary transition-colors">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<!-- Home Section -->
+<section id="home" class="section pt-24">
+<div class="section-container">
+<div class="flex flex-col md:flex-row items-center">
+<div class="w-full md:w-1/2 pr-0 md:pr-12">
+<p class="text-primary text-sm font-medium mb-2">Hi, I'm</p>
+<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Gabriel Rayat</h1>
+<p class="text-xl text-gray-600 mb-8">BSCS Student and Photographer<br><br>I create beautiful, responsive websites with modern<br>technologies that help businesses grow and succeed online.</p>
+<div class="flex gap-4">
+<a href="#projects" class="bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-colors inline-block whitespace-nowrap">View My Work</a>
+<a href="#contact" class="border-2 border-primary text-primary px-6 py-3 !rounded-button font-medium hover:bg-primary hover:text-white transition-colors inline-block whitespace-nowrap">Get in Touch</a>
+</div>
+</div>
+<div class="w-full md:w-1/2 mt-12 md:mt-0">
+<img src="profile.jpg"  alt="Gabriel Rayat" class="w-full h-auto object-cover rounded-lg shadow-lg">
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section id="about" class="section">
+<div class="section-container">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold text-gray-900">About Me</h2>
+<div class="w-24 h-1 bg-primary mx-auto mt-4"></div>
+</div>
+<div class="flex flex-col md:flex-row items-start gap-12">
+<div class="w-full md:w-2/5">
+<img src="my\IMG_20210919_200700_813.jpg" alt="Gabriel Rayat" class="w-full h-auto object-cover rounded-lg shadow-lg">
+</div>
+<div class="w-full md:w-3/5">
+<h3 class="text-xl font-semibold text-primary mb-4">Who I Am</h3>
+<p class="text-gray-700 mb-6 leading-relaxed">
+I'm a passionate frontend developer with a keen eye for design and a love for creating intuitive user experiences. With several years of experience in web development, I specialize in building responsive and accessible websites.
+</p>
+<p class="text-gray-700 mb-8 leading-relaxed">
+When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying outdoor activities to maintain a healthy work-life balance.
+</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<h3 class="text-xl font-semibold text-primary mb-4">Education</h3>
+<div class="mb-4">
+<h4 class="text-gray-900 font-medium">B.S. Computer Science</h4>
+<p class="text-gray-600">Colegio De Los Baños, 2024-2028</p>
+</div>
+</div>
+<div>
+<h3 class="text-xl font-semibold text-primary mb-4">Experience</h3>
+<div class="mb-4">
+<h4 class="text-gray-900 font-medium">Manufacturing</h4>
+<p class="text-gray-600">4+ Years</p>
+</div>
+<div class="mb-4">
+<h4 class="text-gray-900 font-medium">BPO/Non-Voice</h4>
+<p class="text-gray-600">2+ Years</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Tech Stack Section -->
+<section id="tech-stack" class="section bg-gray-50">
+<div class="section-container">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold text-gray-900">Tech Stack</h2>
+<div class="w-24 h-1 bg-primary mx-auto mt-4"></div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-8 max-w-4xl mx-auto">
+<div class="tech-icon flex flex-col items-center">
+<div class="w-20 h-20 bg-white rounded-full shadow-md flex items-center justify-center mb-4">
+<div class="w-10 h-10 flex items-center justify-center text-primary">
+<i class="ri-html5-fill ri-2x"></i>
+</div>
+</div>
+<p class="text-gray-800 font-medium">HTML</p>
+</div>
+<div class="tech-icon flex flex-col items-center">
+<div class="w-20 h-20 bg-white rounded-full shadow-md flex items-center justify-center mb-4">
+<div class="w-10 h-10 flex items-center justify-center text-primary">
+<i class="ri-css3-fill ri-2x"></i>
+</div>
+</div>
+<p class="text-gray-800 font-medium">CSS</p>
+</div>
+<div class="tech-icon flex flex-col items-center">
+<div class="w-20 h-20 bg-white rounded-full shadow-md flex items-center justify-center mb-4">
+<div class="w-10 h-10 flex items-center justify-center text-primary">
+<i class="ri-javascript-fill ri-2x"></i>
+</div>
+</div>
+<p class="text-gray-800 font-medium">JavaScript</p>
+</div>
+<div class="tech-icon flex flex-col items-center">
+<div class="w-20 h-20 bg-white rounded-full shadow-md flex items-center justify-center mb-4">
+<div class="w-10 h-10 flex items-center justify-center text-primary">
+<i class="ri-php-fill ri-2x"></i>
+</div>
+</div>
+<p class="text-gray-800 font-medium">PHP</p>
+</div>
+<div class="tech-icon flex flex-col items-center">
+<div class="w-20 h-20 bg-white rounded-full shadow-md flex items-center justify-center mb-4">
+<div class="w-10 h-10 flex items-center justify-center text-primary">
+<i class="ri-code-s-slash-fill ri-2x"></i>
+</div>
+</div>
+<p class="text-gray-800 font-medium">C</p>
+</div>
+<div class="tech-icon flex flex-col items-center">
+<div class="w-20 h-20 bg-white rounded-full shadow-md flex items-center justify-center mb-4">
+<div class="w-10 h-10 flex items-center justify-center text-primary">
+<i class="ri-code-box-fill ri-2x"></i>
+</div>
+</div>
+<p class="text-gray-800 font-medium">C#</p>
+</div>
+<div class="tech-icon flex flex-col items-center">
+<div class="w-20 h-20 bg-white rounded-full shadow-md flex items-center justify-center mb-4">
+<div class="w-10 h-10 flex items-center justify-center text-primary">
+<i class="ri-python-fill ri-2x"></i>
+</div>
+</div>
+<p class="text-gray-800 font-medium">Python</p>
+</div>
+<div class="tech-icon flex flex-col items-center">
+<div class="w-20 h-20 bg-white rounded-full shadow-md flex items-center justify-center mb-4">
+<div class="w-10 h-10 flex items-center justify-center text-primary">
+<i class="ri-nodejs-fill ri-2x"></i>
+</div>
+</div>
+<p class="text-gray-800 font-medium">Node.JS</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Section -->
+<section id="projects" class="section">
+<div class="section-container">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold text-gray-900">My Projects</h2>
+<div class="w-24 h-1 bg-primary mx-auto mt-4"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="project-card bg-white rounded-lg overflow-hidden shadow-md">
+<div class="h-48 bg-gray-200">
+<img src="https://readdy.ai/api/search-image?query=e-commerce%20website%20interface%20with%20modern%20design%2C%20clean%20layout%2C%20product%20grid%2C%20shopping%20cart%20icon%2C%20search%20functionality%2C%20high-quality%20digital%20mockup&width=400&height=300&seq=3&orientation=landscape" alt="E-commerce Website" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-900 mb-2">E-commerce Website</h3>
+<p class="text-gray-700 mb-4">A fully responsive e-commerce platform built with HTML, CSS, JavaScript, and PHP with MySQL database integration.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">HTML</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">CSS</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">JavaScript</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">PHP</span>
+</div>
+</div>
+</div>
+<div class="project-card bg-white rounded-lg overflow-hidden shadow-md">
+<div class="h-48 bg-gray-200">
+<img src="https://readdy.ai/api/search-image?query=task%20management%20app%20interface%20with%20calendar%20view%2C%20task%20lists%2C%20progress%20tracking%2C%20colorful%20UI%20elements%2C%20digital%20mockup%20on%20device%20screen&width=400&height=300&seq=4&orientation=landscape" alt="Task Management App" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Task Management App</h3>
+<p class="text-gray-700 mb-4">A productivity application built with React and Node.js that helps users organize tasks and track progress.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">React</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">Node.js</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">MongoDB</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">Express</span>
+</div>
+</div>
+</div>
+<div class="project-card bg-white rounded-lg overflow-hidden shadow-md">
+<div class="h-48 bg-gray-200">
+<img src="https://readdy.ai/api/search-image?query=photo%20gallery%20website%20with%20grid%20layout%2C%20image%20thumbnails%2C%20lightbox%20feature%2C%20photography%20portfolio%20showcase%2C%20clean%20modern%20design&width=400&height=300&seq=5&orientation=landscape" alt="Photo Gallery App" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-900 mb-2">Photo Gallery App</h3>
+<p class="text-gray-700 mb-4">A responsive photography portfolio showcasing my work with filtering capabilities and lightbox functionality.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">HTML5</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">CSS3</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">JavaScript</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">jQuery</span>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center mt-12">
+<a href="#" class="bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-colors inline-block whitespace-nowrap">View More</a>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="section bg-white">
+<div class="section-container">
+<div class="text-center mb-8">
+<h2 class="text-4xl font-bold text-gray-900">Get In Touch</h2>
+<div class="w-16 h-1 bg-primary mx-auto mt-4"></div>
+<p class="text-gray-600 mt-6 text-lg">Have a project in mind or want to collaborate? I'd love to hear from you!</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-6xl mx-auto">
+<div>
+<h3 class="text-2xl font-bold text-gray-900 mb-8">Let's Connect</h3>
+<p class="text-gray-600 mb-12 leading-relaxed">Whether you're looking for a developer for your next project, want to discuss photography opportunities, or just want to say hello, feel free to reach out. I'm always open to new opportunities and interesting conversations.</p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+<i class="ri-mail-line text-primary text-xl"></i>
+</div>
+<div>
+<p class="text-gray-600">Email</p>
+<a href="mailto:rayat.cdlb@gmail.com" class="text-gray-900 hover:text-primary">rayat.cdlb@gmail.com</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+<i class="ri-linkedin-line text-primary text-xl"></i>
+</div>
+<div>
+<p class="text-gray-600">LinkedIn</p>
+<a href="https://www.linkedin.com/in/gabriel-rayat" class="text-gray-900 hover:text-primary">www.linkedin.com/in/gabriel-rayat</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+<i class="ri-github-line text-primary text-xl"></i>
+</div>
+<div>
+<p class="text-gray-600">GitHub</p>
+<a href="https://github.com/GabrielRayat-dev" class="text-gray-900 hover:text-primary">github.com/GabrielRayat-dev</a>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white p-8 rounded-xl shadow-lg">
+<form>
+<div class="mb-6">
+<label for="name" class="block text-gray-600 mb-2">Name <span class="text-primary">*</span></label>
+<input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Your full name">
+</div>
+<div class="mb-6">
+<label for="email" class="block text-gray-600 mb-2">Email <span class="text-primary">*</span></label>
+<input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary" placeholder="your.email@example.com">
+</div>
+<div class="mb-6">
+<label for="message" class="block text-gray-600 mb-2">Message <span class="text-primary">*</span></label>
+<textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Tell me about your project or just say hello..."></textarea>
+</div>
+<button type="submit" class="w-full bg-primary text-white py-3 !rounded-lg font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Send Message</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-8">
+<div class="section-container">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<div class="flex items-center gap-1 mb-4 md:mb-0">
+<span class="text-xl font-medium text-primary">Gabriel Rayat</span>
+<span class="text-xl text-gray-900">/</span>
+<span class="text-xl text-gray-500">Portfolio</span>
+</div>
+<p class="text-gray-400 text-sm">© 2025 Gabriel Rayat. All rights reserved.</p>
+<p class="text-gray-400 text-sm mt-4 md:mt-0">This Portfolio Website is a Test only and in Development!<br>Salamat Pu!!</p>
+</div>
+</div>
+</footer>
+<script id="navigation-script">
+document.addEventListener('DOMContentLoaded', function() {
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-link');
+function resetActiveLinks() {
+navLinks.forEach(link => {
+link.classList.remove('active-link');
+});
+}
+function setActiveLink() {
+const scrollPosition = window.scrollY;
+sections.forEach(section => {
+const sectionTop = section.offsetTop - 100;
+const sectionHeight = section.offsetHeight;
+const sectionId = section.getAttribute('id');
+if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+resetActiveLinks();
+document.querySelector(`.nav-link[href="#${sectionId}"]`).classList.add('active-link');
+}
+});
+}
+window.addEventListener('scroll', setActiveLink);
+setActiveLink();
+navLinks.forEach(link => {
+link.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+const targetSection = document.querySelector(targetId);
+window.scrollTo({
+top: targetSection.offsetTop - 80,
+behavior: 'smooth'
+});
+});
+});
+});
+</script>
+<script id="form-script">
+document.addEventListener('DOMContentLoaded', function() {
+const contactForm = document.querySelector('form');
+const createToast = (message, type = 'success') => {
+const toast = document.createElement('div');
+toast.className = `fixed bottom-4 right-4 ${type === 'success' ? 'bg-green-500' : 'bg-red-500'} text-white px-6 py-3 rounded-lg shadow-lg transform transition-transform duration-300 translate-y-full`;
+toast.textContent = message;
+document.body.appendChild(toast);
+setTimeout(() => {
+toast.classList.remove('translate-y-full');
+}, 100);
+setTimeout(() => {
+toast.classList.add('translate-y-full');
+setTimeout(() => {
+document.body.removeChild(toast);
+}, 300);
+}, 3000);
+};
+contactForm.addEventListener('submit', function(e) {
+e.preventDefault();
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const messageInput = document.getElementById('message');
+if (!nameInput.value || !emailInput.value || !messageInput.value) {
+createToast('Please fill in all required fields', 'error');
+return;
+}
+createToast('Thank you for your message! I will get back to you soon.');
+contactForm.reset();
+});
+});
+</script>
+</body>
+</html>
