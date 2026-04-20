@@ -439,6 +439,14 @@ html[data-theme="light"] .theme-toggle__icon--moon {
   gap: 12px;
 }
 
+/* About section — actions row (e.g. gallery button) */
+.about__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
 /* -------------------------------------------------------------------------- */
 /*  Key / value mini-blocks — stats or fact pairs inside cards                 */
 /* -------------------------------------------------------------------------- */
