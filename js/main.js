@@ -229,3 +229,144 @@ setupBackToTop();
 setupMobileNav();
 setupActiveNav();
 setupContactForm();
+setupParticles();
+
+// * ---------------------------------------------------------------------------
+// * Particle Network Background
+// * ---------------------------------------------------------------------------
+
+function setupParticles() {
+  const canvas = document.createElement('canvas');
+  canvas.id = 'particle-canvas';
+  // Insert at the very beginning of body
+  document.body.insertBefore(canvas, document.body.firstChild);
+
+  const ctx = canvas.getContext('2d');
+  let width, height;
+  let particles = [];
+  const mouse = { x: null, y: null, radius: 150 };
+
+  function resize() {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+    initParticles();
+  }
+
+  window.addEventListener('resize', resize);
+  window.addEventListener('mousemove', (e) => {
+    mouse.x = e.x;
+    mouse.y = e.y;
+  });
+  window.addEventListener('mouseout', () => {
+    mouse.x = null;
+    mouse.y = null;
+  });
+
+  class Particle {
+    constructor() {
+      this.size = (Math.random() * 1.5) + 0.5;
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
+      this.vx = (Math.random() - 0.5) * 0.8;
+      this.vy = (Math.random() - 0.5) * 0.8;
+      this.baseVx = this.vx;
+      this.baseVy = this.vy;
+    }
+    
+    draw(color) {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = color;
+      ctx.fill();
+    }
+    
+    update() {
+      // Bounce off edges
+      if (this.x > width || this.x < 0) {
+        this.vx = -this.vx;
+        this.baseVx = -this.baseVx;
+      }
+      if (this.y > height || this.y < 0) {
+        this.vy = -this.vy;
+        this.baseVy = -this.baseVy;
+      }
+      
+      this.x += this.vx;
+      this.y += this.vy;
+
+      // Friction to return to base speed
+      this.vx += (this.baseVx - this.vx) * 0.05;
+      this.vy += (this.baseVy - this.vy) * 0.05;
+    }
+  }
+
+  function initParticles() {
+    particles = [];
+    // Adjust density based on screen size
+    const numberOfParticles = Math.floor((width * height) / 10000);
+    for (let i = 0; i < numberOfParticles; i++) {
+      particles.push(new Particle());
+    }
+  }
+
+  function animate() {
+    requestAnimationFrame(animate);
+    ctx.clearRect(0, 0, width, height);
+    
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    // Using the accent colors from CSS
+    const particleRgb = isLight ? '26, 157, 145' : '46, 196, 182';
+    
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      p.update();
+      p.draw(`rgba(${particleRgb}, 0.8)`);
+      
+      // Check connections
+      for (let j = i; j < particles.length; j++) {
+        const p2 = particles[j];
+        const dx = p.x - p2.x;
+        const dy = p.y - p2.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        if (distance < 120) {
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(${particleRgb}, ${0.2 - distance/600})`;
+          ctx.lineWidth = 0.8;
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.stroke();
+        }
+      }
+      
+      // Mouse interaction
+      if (mouse.x != null && mouse.y != null) {
+        const dx = p.x - mouse.x;
+        const dy = p.y - mouse.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        if (distance < mouse.radius) {
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(${particleRgb}, ${0.4 - distance/mouse.radius})`;
+          ctx.lineWidth = 1;
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.stroke();
+
+          // Gravity / following effect: particles get pulled towards the mouse slowly
+          const forceDirectionX = dx / distance;
+          const forceDirectionY = dy / distance;
+          const force = (mouse.radius - distance) / mouse.radius;
+          
+          p.vx -= forceDirectionX * force * 0.05;
+          p.vy -= forceDirectionY * force * 0.05;
+        }
+      }
+    }
+  }
+
+  resize();
+  animate();
+}
